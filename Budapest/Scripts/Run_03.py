@@ -1,0 +1,27 @@
+from pybricks.hubs import InventorHub
+from pybricks.pupdevices import Motor, ColorSensor,
+UltrasonicSensor
+from pybricks.parameters import Button, Color, Direction, Port,
+Side, Stop
+from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
+hub = InventorHub()
+
+
+def run_unexpected_encounter_M09_M06(motor_config: MotorConfig):
+    straight_speed =1000
+    straight_acceleration = 2000
+    turn_rate = 500
+    turn_acceleration =120
+    drive_base = DriveBase(motor_config.left_motor,
+    motor_config.right_motor, wheel_diameter=62, axle_track=180)
+    #konfiguráljuk a “Drive Base”
+    drive_base.settings(straight_speed, straight_acceleration,
+    turn_rate,turn_acceleration)
+    drive_base.use_gyro(True)
+    # elindul a robot
+    # a robot lelöki az ismeretlen lényt
+    drive_base.straight(distance=550)
+    drive_base.straight(distance=-550)
+    hub.light.on(Color.BLACK)
+    wait(time=50000)
